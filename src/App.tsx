@@ -1,9 +1,9 @@
-import {ChakraProvider} from "@chakra-ui/react";
-
 import "./styles/global.css";
+
+import {ChakraProvider} from "@chakra-ui/react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {IRoute} from "./interfaces/route.interface.ts";
-import {useRoutesService} from "./services/routes.services.ts";
+import {useRoutesService} from "./services/route.service.ts";
 
 function App() {
     const routes: IRoute[] = useRoutesService();
