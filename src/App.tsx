@@ -1,4 +1,5 @@
 import "./styles/global.css";
+import theme from "./configs/chakraTheme.ts";
 
 import {ChakraProvider} from "@chakra-ui/react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -10,7 +11,7 @@ function App() {
 
     return (
         <>
-            <ChakraProvider>
+            <ChakraProvider theme={theme}>
                 <BrowserRouter>
                     <Routes>
                         {routes.map((route) => (
