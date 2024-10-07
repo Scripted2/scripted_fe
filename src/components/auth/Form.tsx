@@ -1,14 +1,10 @@
-import {Button, FormControl, Input, InputGroup, InputLeftElement, Text, VStack} from "@chakra-ui/react";
+import {Button, Checkbox, FormControl, Input, InputGroup, InputLeftElement, Text, VStack} from "@chakra-ui/react";
 import {FiUser} from "react-icons/fi";
 import {MdEmail, MdLock} from "react-icons/md";
 import {Link} from "react-router-dom";
-
-interface IAuthForm {
-    buttonText: string;
-    bottomText?: string;
-    linkText?: string;
-    goTo: string;
-}
+import {IAuthForm} from "../../interfaces/form.interface.ts";
+import {fieldStyles, leftElementStyles} from "../../styles/components/form.ts";
+import {useState} from "react";
 
 const AuthForm = ({
                       buttonText,
@@ -16,40 +12,20 @@ const AuthForm = ({
                       linkText,
                       goTo,
                   }: IAuthForm) => {
-    const fieldStyles = {
-        backgroundColor: "#474B52",
-        borderRadius: "40.38px",
-        border: "none",
-        height: "58px",
-        color: "#FFFFFF",
-        textAlign: "center",
-        _placeholder: {
-            color: "#FFFFFF",
-            fontSize: "1.15rem",
-        },
-        _active: {
-            border: "none",
-        },
-    };
+    const [showPassword, setShowPassword] = useState(false);
 
-    const leftElementStyles = {
-        pointerEvents: "none",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginLeft: "25px",
-    }
+    const revealPassword = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <>
             <VStack
                 spacing={4}
-                align="stretch"
-                width={"280px"}
+                maxW={"280px"}
                 margin={"0 auto"}
             >
-                <FormControl id="first-name" isRequired mt={"60px"}>
+                <FormControl id="first-name" isRequired mt={20}>
                     <InputGroup>
                         <InputLeftElement
                             children={<FiUser color="white" size={"32px"}/>}
@@ -91,7 +67,11 @@ const AuthForm = ({
                             children={<MdLock color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="password" placeholder="Password"/>
+                        <Input
+                            sx={fieldStyles}
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                        />
                     </InputGroup>
                 </FormControl>
                 <FormControl id="confirm-password" isRequired>
@@ -100,11 +80,23 @@ const AuthForm = ({
                             children={<MdLock color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="password" placeholder="Confirm Password"/>
+                        <Input
+                            sx={fieldStyles}
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Confirm Password"
+                        />
                     </InputGroup>
                 </FormControl>
+                <Checkbox
+                    colorScheme={"whiteAlpha"}
+                    color={"#FFFFFF"}
+                    fontSize={"1.262rem"}
+                    fontWeight={"semibold"}
+                    onChange={revealPassword}
+                >
+                    Show Password
+                </Checkbox>
                 <Button m={"20px auto"}>{buttonText}</Button>
-
                 <Text fontSize={"1.262rem"} color={"#FFFFFF"} textAlign={"center"}>
                     {bottomText}
                     <Text

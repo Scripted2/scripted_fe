@@ -12,7 +12,7 @@ const Header = ({
                 fontSize={"1.25rem"}
                 fontWeight={"semibold"}
                 textAlign={"center"}
-                marginTop={"80px"}
+                marginTop={{base: "100px", lg: "110px", xl: "250px"}}
             >
                 {title}
             </Text>
