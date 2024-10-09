@@ -26,7 +26,11 @@ const AuthForm = ({
                 maxW={"280px"}
                 margin={"0 auto"}
             >
-                <FormControl id="first-name" isRequired mt={20}>
+                <FormControl
+                    id="first-name"
+                    isRequired
+                    mt={"5vh"}
+                >
                     <InputGroup>
                         <InputLeftElement
                             children={<FiUser color="white" size={"32px"}/>}

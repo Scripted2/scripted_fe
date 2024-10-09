@@ -5,3 +5,7 @@ export interface IAuthForm {
     goTo: string;
     buttonAction?: () => void;
 }
+
+export interface ISignUpFirstStep {
+    goToNextStep: () => void;
+}

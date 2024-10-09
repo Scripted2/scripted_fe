@@ -5,6 +5,8 @@ const theme = extendTheme({
         base: "0px",
         sm: "640px",
         md: "768px",
+        m: "800px",
+        l: "1200px",
         lg: "1920px",
         xl: "2560px",
     },

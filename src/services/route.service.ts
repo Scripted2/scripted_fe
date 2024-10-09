@@ -1,7 +1,6 @@
 import {IRoute} from "../interfaces/route.interface.ts";
 import LogInPage from "../pages/auth/LogIn.tsx";
-import SignUpPage from "../pages/auth/SignUpFirstStep.tsx";
-
+import SignUp from "../pages/auth/SignUp.tsx";
 
 export const useRoutesService = (): IRoute[] => {
     const unprotectedRoutes: IRoute[] = [
@@ -13,8 +12,8 @@ export const useRoutesService = (): IRoute[] => {
         {
             path: "/signup",
             name: "Sign Up",
-            element: SignUpPage
-        }
+            element: SignUp
+        },
     ];
 
     const protectedRoutes: IRoute[] = [];

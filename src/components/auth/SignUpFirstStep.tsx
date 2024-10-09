@@ -1,18 +1,18 @@
-import Header from "../../components/site/Header.tsx";
-import AuthForm from "../../components/auth/Form.tsx";
+import AuthForm from "./Form.tsx";
+import {ISignUpFirstStep} from "../../interfaces/form.interface.ts";
 
-const SignUpPage = () => {
+const SignUpFirstStep = ({goToNextStep}: ISignUpFirstStep) => {
     return (
         <>
-            <Header title={"Let’s create you an account!"}/>
             <AuthForm
                 buttonText={"Next"}
                 bottomText={"Already have an account?"}
                 linkText={"Log in"}
                 goTo={"/login"}
+                buttonAction={goToNextStep}
             />
         </>
     );
 }
 
-export default SignUpPage;
+export default SignUpFirstStep;
