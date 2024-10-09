@@ -30,6 +30,9 @@ const theme = extendTheme({
                     _hover: {
                         bg: "#2c1f4f",
                     },
+                    _active: {
+                        bg: "#2c1f4f",
+                    },
                 },
             },
             baseStyle: {

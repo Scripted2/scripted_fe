@@ -12,6 +12,8 @@ const AuthForm = ({
                       linkText,
                       goTo,
                       buttonAction,
+                      onInputChange,
+                      formData,
                   }: IAuthForm) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -36,7 +38,13 @@ const AuthForm = ({
                             children={<FiUser color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="text" placeholder="First Name"/>
+                        <Input
+                            sx={fieldStyles}
+                            type="text"
+                            placeholder="First Name"
+                            onChange={onInputChange}
+                            value={formData.firstName}
+                        />
                     </InputGroup>
                 </FormControl>
                 <FormControl id="last-name" isRequired>
@@ -45,7 +53,13 @@ const AuthForm = ({
                             children={<FiUser color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="text" placeholder="Last Name"/>
+                        <Input
+                            sx={fieldStyles}
+                            type="text"
+                            placeholder="Last Name"
+                            onChange={onInputChange}
+                            value={formData.lastName}
+                        />
                     </InputGroup>
                 </FormControl>
                 <FormControl id="username" isRequired>
@@ -54,7 +68,13 @@ const AuthForm = ({
                             children={<FiUser color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="text" placeholder="Username"/>
+                        <Input
+                            sx={fieldStyles}
+                            type="text"
+                            placeholder="Username"
+                            onChange={onInputChange}
+                            value={formData.username}
+                        />
                     </InputGroup>
                 </FormControl>
                 <FormControl id="email" isRequired>
@@ -63,7 +83,13 @@ const AuthForm = ({
                             children={<MdEmail color="white" size={"32px"}/>}
                             sx={leftElementStyles}
                         />
-                        <Input sx={fieldStyles} type="email" placeholder="Email"/>
+                        <Input
+                            sx={fieldStyles}
+                            type="email"
+                            placeholder="Email"
+                            onChange={onInputChange}
+                            value={formData.email}
+                        />
                     </InputGroup>
                 </FormControl>
                 <FormControl id="password" isRequired>
@@ -76,6 +102,8 @@ const AuthForm = ({
                             sx={fieldStyles}
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
+                            onChange={onInputChange}
+                            value={formData.password}
                         />
                     </InputGroup>
                 </FormControl>
@@ -89,6 +117,8 @@ const AuthForm = ({
                             sx={fieldStyles}
                             type={showPassword ? "text" : "password"}
                             placeholder="Confirm Password"
+                            onChange={onInputChange}
+                            value={formData.confirmPassword}
                         />
                     </InputGroup>
                 </FormControl>

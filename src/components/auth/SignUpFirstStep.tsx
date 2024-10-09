@@ -1,7 +1,11 @@
 import AuthForm from "./Form.tsx";
 import {ISignUpFirstStep} from "../../interfaces/form.interface.ts";
 
-const SignUpFirstStep = ({goToNextStep}: ISignUpFirstStep) => {
+const SignUpFirstStep = ({
+                             goToNextStep,
+                             onInputChange,
+                             formData,
+                         }: ISignUpFirstStep) => {
     return (
         <>
             <AuthForm
@@ -10,6 +14,8 @@ const SignUpFirstStep = ({goToNextStep}: ISignUpFirstStep) => {
                 linkText={"Log in"}
                 goTo={"/login"}
                 buttonAction={goToNextStep}
+                onInputChange={onInputChange}
+                formData={formData}
             />
         </>
     );
