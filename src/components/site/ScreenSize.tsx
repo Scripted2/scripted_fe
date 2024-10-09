@@ -4,6 +4,7 @@ const ScreenSize = () => {
     return (
         <Box
             maxW="400px"
+            minW={"fit-content"}
             m="auto"
             mt={"40vh"}
             p={6}
