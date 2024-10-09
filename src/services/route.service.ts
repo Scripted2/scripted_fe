@@ -1,6 +1,6 @@
 import {IRoute} from "../interfaces/route.interface.ts";
 import LogInPage from "../pages/auth/LogIn.tsx";
-import SignUpPage from "../pages/auth/SignUp.tsx";
+import SignUpPage from "../pages/auth/SignUpFirstStep.tsx";
 
 
 export const useRoutesService = (): IRoute[] => {

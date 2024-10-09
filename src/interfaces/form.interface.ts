@@ -3,4 +3,5 @@ export interface IAuthForm {
     bottomText?: string;
     linkText?: string;
     goTo: string;
+    buttonAction?: () => void;
 }

@@ -11,6 +11,7 @@ const AuthForm = ({
                       bottomText,
                       linkText,
                       goTo,
+                      buttonAction,
                   }: IAuthForm) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -96,7 +97,7 @@ const AuthForm = ({
                 >
                     Show Password
                 </Checkbox>
-                <Button m={"20px auto"}>{buttonText}</Button>
+                <Button m={"20px auto"} onClick={buttonAction}>{buttonText}</Button>
                 <Text fontSize={"1.262rem"} color={"#FFFFFF"} textAlign={"center"}>
                     {bottomText}
                     <Text
