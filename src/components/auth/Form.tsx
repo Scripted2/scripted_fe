@@ -27,7 +27,7 @@ const AuthForm = ({
         <>
             <VStack
                 spacing={4}
-                maxW={"300px"}
+                maxW={"320px"}
                 margin={"0 auto"}
             >
                 <FormControl
