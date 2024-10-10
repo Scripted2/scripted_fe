@@ -8,12 +8,14 @@ export const useRoutesService = (): IRoute[] => {
         {
             path: "/login",
             name: "Login",
-            element: LogInPage
+            element: LogInPage,
+            protected: false
         },
         {
             path: "/signup",
             name: "Sign Up",
-            element: SignUp
+            element: SignUp,
+            protected: false
         },
     ];
 
@@ -21,7 +23,8 @@ export const useRoutesService = (): IRoute[] => {
         {
             path: "/",
             name: "Home",
-            element: Homepage
+            element: Homepage,
+            protected: true
         }
     ];
 

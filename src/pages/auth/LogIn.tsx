@@ -30,10 +30,9 @@ const LogInPage = () => {
         }
         axios.post(`${environment.backend_api_url}${environment.api.log_in}`, formData)
             .then((res) => {
-                console.log(res);
-                localStorage.setItem("accessToken", res.data.access);
-                localStorage.setItem("refreshToken", res.data.refresh);
-                localStorage.setItem("userData", JSON.stringify(res.data.user));
+                localStorage.setItem(environment.local_storage.accessToken, res.data.access);
+                localStorage.setItem(environment.local_storage.refreshToken, res.data.refresh);
+                localStorage.setItem(environment.local_storage.userData, JSON.stringify(res.data.user));
                 showSuccessToast(toast, "Success", "You have successfully logged in!");
                 navigate("/");
             })

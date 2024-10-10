@@ -42,3 +42,8 @@ export interface ISignUpSecondStep {
     onSubmit: () => void;
     updateFavoriteCategories: (categories: number[]) => void;
 }
+
+export interface IDecodedToken {
+    exp: number;
+    sub?: string;
+}
