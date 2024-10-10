@@ -1,18 +1,16 @@
 import { UseToastOptions, useToast } from "@chakra-ui/react";
 
-export const toastOptions: UseToastOptions = {
-    duration: 4000,
+const toastOptions: UseToastOptions = {
+    duration: 3000,
     isClosable: true,
-    position: "top-right",
+    position: "top",
 };
 
 export const showErrorToast = (
     toast: ReturnType<typeof useToast>,
-    title: string,
     description: string,
 ) => {
     toast({
-        title: title,
         description: description,
         status: "error",
         ...toastOptions,
@@ -21,11 +19,9 @@ export const showErrorToast = (
 
 export const showSuccessToast = (
     toast: ReturnType<typeof useToast>,
-    title: string,
     description: string,
 ) => {
     toast({
-        title: title,
         description: description,
         status: "success",
         ...toastOptions,
@@ -34,11 +30,9 @@ export const showSuccessToast = (
 
 export const showInfoToast = (
     toast: ReturnType<typeof useToast>,
-    title: string,
     description: string,
 ) => {
     toast({
-        title: title,
         description: description,
         status: "info",
         ...toastOptions,
@@ -47,11 +41,9 @@ export const showInfoToast = (
 
 export const showWarningToast = (
     toast: ReturnType<typeof useToast>,
-    title: string,
     description: string,
 ) => {
     toast({
-        title: title,
         description: description,
         status: "warning",
         ...toastOptions,

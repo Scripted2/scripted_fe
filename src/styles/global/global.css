@@ -15,10 +15,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.error-input {
-    border: 1px solid red;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

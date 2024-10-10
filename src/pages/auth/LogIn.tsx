@@ -25,7 +25,7 @@ const LogInPage = () => {
 
     const handleLogIn = () => {
         if (!formData.email || !formData.password) {
-            showWarningToast(toast, "Error", "Please fill in all fields.");
+            showWarningToast(toast, "Please fill in all fields.");
             return;
         }
         axios.post(`${environment.backend_api_url}${environment.api.log_in}`, formData)
@@ -33,15 +33,15 @@ const LogInPage = () => {
                 localStorage.setItem(environment.local_storage.accessToken, res.data.access);
                 localStorage.setItem(environment.local_storage.refreshToken, res.data.refresh);
                 localStorage.setItem(environment.local_storage.userData, JSON.stringify(res.data.user));
-                showSuccessToast(toast, "Success", "You have successfully logged in!");
+                showSuccessToast(toast, "You have successfully logged in!");
                 navigate("/");
             })
             .catch((err) => {
                 if (err.status === 401 && err.response.data.detail === environment.backend_response.invalid_credentials) {
-                    showErrorToast(toast, "Error", "No account found with the given credentials.");
+                    showErrorToast(toast, "No account found with the given credentials.");
                     return;
                 }
-                showErrorToast(toast, "Error", "An error occurred. Please try again later.");
+                showErrorToast(toast, "An error occurred. Please try again later.");
             });
     }
 
