@@ -1,5 +1,5 @@
 const api = {
-    log_in: 'login',
+    log_in: 'token',
     sign_up: 'signup',
     categories: 'categories',
 }
@@ -7,6 +7,14 @@ const api = {
 const backend_response = {
     existing_email: "user with this email already exists.",
     existing_username: "user with this username already exists.",
+    invalid_credentials: "No active account found with the given credentials",
+}
+
+const local_storage = {
+    accessToken: "accessToken",
+    refreshToken: "refreshToken",
+    userData: "userData",
+    favorite_categories_ids: "favorite_categories_ids",
 }
 
 export const environment = {
@@ -14,4 +22,5 @@ export const environment = {
     backend_api_url: "http://127.0.0.1:8000/api/",
     backend_response: backend_response,
     api: api,
+    local_storage: local_storage,
 }

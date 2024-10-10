@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {IRoute} from "./interfaces/route.interface.ts";
 import {useRoutesService} from "./services/route.service.ts";
 import ScreenSize from "./components/site/ScreenSize.tsx";
+import ProtectedRoute from "./components/route/ProtectedRoute.tsx";
 
 function App() {
     const routes: IRoute[] = useRoutesService();
@@ -17,13 +18,18 @@ function App() {
                 <ChakraProvider theme={theme}>
                     <BrowserRouter>
                         <Routes>
-                            {routes.map((route) => (
-                                <Route
-                                    key={route.name}
-                                    path={route.path}
-                                    element={<route.element/>}
-                                />
-                            ))}
+                            {routes.map((route) => {
+                                const RouteComponent = route.protected ?
+                                    <ProtectedRoute>{<route.element />}</ProtectedRoute> :
+                                    <route.element />;
+                                return (
+                                    <Route
+                                        key={route.name}
+                                        path={route.path}
+                                        element={RouteComponent}
+                                    />
+                                );
+                            })}
                         </Routes>
                     </BrowserRouter>
                 </ChakraProvider>

@@ -15,6 +15,7 @@ const AuthForm = ({
                       onInputChange,
                       formData,
                       errors,
+                      isLogIn
                   }: IAuthForm) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -26,13 +27,14 @@ const AuthForm = ({
         <>
             <VStack
                 spacing={4}
-                maxW={"300px"}
+                maxW={"320px"}
                 margin={"0 auto"}
             >
                 <FormControl
                     id="first-name"
                     isRequired
                     mt={"5vh"}
+                    display={isLogIn ? "none" : "block"}
                 >
                     <InputGroup>
                         <InputLeftElement
@@ -52,7 +54,11 @@ const AuthForm = ({
                         />
                     </InputGroup>
                 </FormControl>
-                <FormControl id="last-name" isRequired>
+                <FormControl
+                    id="last-name"
+                    isRequired
+                    display={isLogIn ? "none" : "block"}
+                >
                     <InputGroup>
                         <InputLeftElement
                             children={<FiUser color="white" size={"32px"}/>}
@@ -71,7 +77,11 @@ const AuthForm = ({
                         />
                     </InputGroup>
                 </FormControl>
-                <FormControl id="username" isRequired>
+                <FormControl
+                    id="username"
+                    isRequired
+                    display={isLogIn ? "none" : "block"}
+                >
                     <InputGroup>
                         <InputLeftElement
                             children={<FiUser color="white" size={"32px"}/>}
@@ -128,7 +138,11 @@ const AuthForm = ({
                         />
                     </InputGroup>
                 </FormControl>
-                <FormControl id="confirm-password" isRequired>
+                <FormControl
+                    id="confirm-password"
+                    isRequired
+                    display={isLogIn ? "none" : "block"}
+                >
                     <InputGroup>
                         <InputLeftElement
                             children={<MdLock color="white" size={"32px"}/>}
@@ -157,7 +171,7 @@ const AuthForm = ({
                     Show Password
                 </Checkbox>
                 <Button m={"20px auto"} onClick={buttonAction}>{buttonText}</Button>
-                <Text fontSize={"1.262rem"} color={"#FFFFFF"} textAlign={"center"}>
+                <Text fontSize={"1.262rem"} color={"#FFFFFF"} textAlign={"center"} w={"280px"}>
                     {bottomText}
                     <Text
                         as={"span"}
