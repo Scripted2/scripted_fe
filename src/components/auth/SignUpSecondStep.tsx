@@ -48,12 +48,13 @@ const SignUpSecondStep = ({
                 >
                     {categories && categories.map((category: ICategory) => (
                         <Flex
+                            className={"scale-on-hover"}
                             as="label"
                             key={category.id}
                             align="center"
                             justify="center"
                             bg={selectedCategories.includes(category.id) ? "#3C49A3" : "#474B52"}
-                            color="white"
+                            color="#FFFFFF"
                             borderRadius="40.38"
                             w="fit-content"
                             px={4}
@@ -63,6 +64,7 @@ const SignUpSecondStep = ({
                             fontSize="md"
                             fontWeight="semibold"
                             _hover={{bg: "gray.600"}}
+                            boxShadow={selectedCategories.includes(category.id) ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "none"}
                             onClick={() => handleCategorySelect(category.id)}
                         >
                             #{category.name}

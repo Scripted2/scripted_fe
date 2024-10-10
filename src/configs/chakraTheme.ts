@@ -33,6 +33,7 @@ const theme = extendTheme({
                     _active: {
                         bg: "#2c1f4f",
                     },
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 },
             },
             baseStyle: {

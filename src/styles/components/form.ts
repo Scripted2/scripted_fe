@@ -9,8 +9,9 @@ export const fieldStyles = {
         color: "#FFFFFF",
         fontSize: "1.15rem",
     },
-    _active: {
+    _focus: {
         border: "none",
+        boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     },
 };
 
