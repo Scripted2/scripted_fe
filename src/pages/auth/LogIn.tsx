@@ -37,7 +37,7 @@ const LogInPage = () => {
                 navigate("/");
             })
             .catch((err) => {
-                if (err.status === 401 && err.response.data.detail === "No active account found with the given credentials") {
+                if (err.status === 401 && err.response.data.detail === environment.backend_response.invalid_credentials) {
                     showErrorToast(toast, "Error", "No account found with the given credentials.");
                     return;
                 }

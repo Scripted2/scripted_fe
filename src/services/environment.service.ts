@@ -7,6 +7,7 @@ const api = {
 const backend_response = {
     existing_email: "user with this email already exists.",
     existing_username: "user with this username already exists.",
+    invalid_credentials: "No active account found with the given credentials",
 }
 
 const local_storage = {
