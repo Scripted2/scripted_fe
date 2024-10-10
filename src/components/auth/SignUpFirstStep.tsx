@@ -1,5 +1,5 @@
 import AuthForm from "./Form.tsx";
-import {ISignUpFirstStep} from "../../interfaces/form.interface.ts";
+import {ISignUpFirstStep} from "../../interfaces/auth.interface.ts";
 
 const SignUpFirstStep = ({
                              goToNextStep,

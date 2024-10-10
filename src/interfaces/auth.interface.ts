@@ -1,12 +1,13 @@
 import React from "react";
 
 export interface ISignUp {
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
     username: string;
     email: string;
     password: string;
-    confirmPassword: string;
+    confirm_password: string;
+    favorite_categories_ids?: number[];
 }
 
 export interface IAuthForm {
@@ -27,4 +28,5 @@ export interface ISignUpFirstStep {
 
 export interface ISignUpSecondStep {
     onSubmit: () => void;
+    updateFavoriteCategories: (categories: number[]) => void;
 }

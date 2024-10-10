@@ -2,7 +2,7 @@ import {Button, Checkbox, FormControl, Input, InputGroup, InputLeftElement, Text
 import {FiUser} from "react-icons/fi";
 import {MdEmail, MdLock} from "react-icons/md";
 import {Link} from "react-router-dom";
-import {IAuthForm} from "../../interfaces/form.interface.ts";
+import {IAuthForm} from "../../interfaces/auth.interface.ts";
 import {fieldStyles, leftElementStyles} from "../../styles/components/form.ts";
 import {useState} from "react";
 
@@ -39,11 +39,12 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"first_name"}
                             sx={fieldStyles}
                             type="text"
                             placeholder="First Name"
                             onChange={onInputChange}
-                            value={formData.firstName}
+                            value={formData.first_name}
                         />
                     </InputGroup>
                 </FormControl>
@@ -54,11 +55,12 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"last_name"}
                             sx={fieldStyles}
                             type="text"
                             placeholder="Last Name"
                             onChange={onInputChange}
-                            value={formData.lastName}
+                            value={formData.last_name}
                         />
                     </InputGroup>
                 </FormControl>
@@ -69,6 +71,7 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"username"}
                             sx={fieldStyles}
                             type="text"
                             placeholder="Username"
@@ -84,6 +87,7 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"email"}
                             sx={fieldStyles}
                             type="email"
                             placeholder="Email"
@@ -99,6 +103,7 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"password"}
                             sx={fieldStyles}
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
@@ -114,11 +119,12 @@ const AuthForm = ({
                             sx={leftElementStyles}
                         />
                         <Input
+                            name={"confirm_password"}
                             sx={fieldStyles}
                             type={showPassword ? "text" : "password"}
                             placeholder="Confirm Password"
                             onChange={onInputChange}
-                            value={formData.confirmPassword}
+                            value={formData.confirm_password}
                         />
                     </InputGroup>
                 </FormControl>
