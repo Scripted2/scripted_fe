@@ -6,8 +6,11 @@ import {ISignUp} from "../../interfaces/auth.interface.ts";
 import axios from "axios";
 import {environment} from "../../services/environment.service.ts";
 import {useNavigate} from "react-router-dom";
+import {useToast} from "@chakra-ui/react";
+import {showErrorToast, showSuccessToast} from "../../utils/toast.util.ts";
 
 const SignUp = () => {
+    const toast = useToast();
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState<ISignUp>({
@@ -35,12 +38,12 @@ const SignUp = () => {
 
     const handleSubmit = () => {
         axios.post(`${environment.backend_api_url}${environment.api.sign_up}`, formData)
-            .then((res) => {
-                console.log(res.data);
+            .then(() => {
+                showSuccessToast(toast, "Success", "Account created successfully!");
                 navigate("/login");
             })
-            .catch((err) => {
-                console.error(err);
+            .catch(() => {
+                showErrorToast(toast, "Error", "An error occurred while creating your account. Please try again later.");
             });
     }
 
