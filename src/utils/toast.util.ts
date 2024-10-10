@@ -1,9 +1,9 @@
-import { UseToastOptions, useToast } from "@chakra-ui/react";
+import {UseToastOptions, useToast} from "@chakra-ui/react";
 
 const toastOptions: UseToastOptions = {
     duration: 3000,
     isClosable: true,
-    position: "top",
+    position: "top-right",
 };
 
 export const showErrorToast = (
@@ -49,3 +49,14 @@ export const showWarningToast = (
         ...toastOptions,
     });
 };
+
+export const showLoadingToast = (
+    toast: ReturnType<typeof useToast>,
+    description: string,
+) => {
+    toast({
+        description: description,
+        status: "loading",
+        ...toastOptions,
+    });
+}
