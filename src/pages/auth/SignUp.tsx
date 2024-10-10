@@ -55,7 +55,7 @@ const SignUp = () => {
 
         if (!first_name || !last_name || !username || !email || !password || !confirm_password) {
             showWarningToast(toast, "Error", "Please fill in all fields.");
-            hasErrors = true;
+            return;
         }
 
         if (!validateName(formattedFirstName)) {
@@ -108,14 +108,14 @@ const SignUp = () => {
     }
 
     const updateFavoriteCategories = (selectedCategories: number[]) => {
-        if (selectedCategories.length === 0) {
-            showWarningToast(toast, "Error", "Please select at least one category.");
-            return;
-        }
         setFormData({...formData, favorite_categories_ids: selectedCategories});
     };
 
     const handleSubmit = () => {
+        if (formData.favorite_categories_ids?.length === 0) {
+            showWarningToast(toast, "Error", "Please select at least one category.");
+            return;
+        }
         const signUpData = {
             ...formData,
             first_name: formattedFirstName,
