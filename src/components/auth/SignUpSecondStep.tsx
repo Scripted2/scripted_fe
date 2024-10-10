@@ -4,18 +4,24 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {ICategory} from "../../interfaces/category.interface.ts";
 import {environment} from "../../services/environment.service.ts";
+import LoadingIndicator from "../site/LoadingIndicator.tsx";
 
 const SignUpSecondStep = ({
                               onSubmit,
                               updateFavoriteCategories,
                           }: ISignUpSecondStep) => {
     const [categories, setCategories] = useState([]);
-    const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
+    const [selectedCategories, setSelectedCategories] = useState<number[]>(() => {
+        const savedCategories = localStorage.getItem(environment.local_storage.favorite_categories_ids);
+        return savedCategories ? JSON.parse(savedCategories) : [];
+    });
+    const [loadingCategories, setLoadingCategories] = useState(true);
 
     useEffect(() => {
         axios.get(`${environment.backend_api_url}${environment.api.categories}`)
             .then((res) => {
                 setCategories(res.data);
+                setLoadingCategories(false);
             })
             .catch((err) => {
                 console.error(err);
@@ -27,6 +33,7 @@ const SignUpSecondStep = ({
             ? selectedCategories.filter(id => id !== categoryId)
             : [...selectedCategories, categoryId];
 
+        localStorage.setItem(environment.local_storage.favorite_categories_ids, JSON.stringify(updatedCategories));
         setSelectedCategories(updatedCategories);
         updateFavoriteCategories(updatedCategories);
     };
@@ -46,6 +53,14 @@ const SignUpSecondStep = ({
                     left="50%"
                     transform="translateX(-50%)"
                 >
+                    {loadingCategories && (
+                        <LoadingIndicator
+                            textSize="md"
+                            spinnerSize="xl"
+                            gap={5}
+                            marginTop={20}
+                        />
+                    )}
                     {categories && categories.map((category: ICategory) => (
                         <Flex
                             className={"scale-on-hover"}
@@ -71,7 +86,12 @@ const SignUpSecondStep = ({
                         </Flex>
                     ))}
                 </Flex>
-                <Button onClick={onSubmit} display="block" mx="auto" mt="50px">
+                <Button
+                    onClick={onSubmit}
+                    display={loadingCategories ? "none" : "block"}
+                    mx="auto"
+                    mt="50px"
+                >
                     Sign Up
                 </Button>
             </Box>

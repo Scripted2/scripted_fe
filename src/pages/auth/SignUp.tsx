@@ -124,16 +124,19 @@ const SignUp = () => {
         axios.post(`${environment.backend_api_url}${environment.api.sign_up}`, signUpData)
             .then(() => {
                 showSuccessToast(toast, "Account created successfully!");
+                localStorage.removeItem(environment.local_storage.favorite_categories_ids);
                 navigate("/login");
             })
             .catch((err) => {
                 if (err.response.status === 400) {
                     if (err.response.data.email && err.response.data.email.length > 0 && err.response.data.email[0] === environment.backend_response.existing_email) {
                         showErrorToast(toast, "Email already exists.");
+                        setErrors({...errors, email: true});
                         setStep(1);
                         return;
                     } else if (err.response.data.username && err.response.data.username.length > 0 && err.response.data.username[0] === environment.backend_response.existing_username) {
                         showErrorToast(toast, "Username already exists.");
+                        setErrors({...errors, username: true});
                         setStep(1);
                         return;
                     }

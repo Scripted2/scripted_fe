@@ -14,6 +14,7 @@ const local_storage = {
     accessToken: "accessToken",
     refreshToken: "refreshToken",
     userData: "userData",
+    favorite_categories_ids: "favorite_categories_ids",
 }
 
 export const environment = {
