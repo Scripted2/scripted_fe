@@ -1,5 +1,5 @@
 const api = {
-    log_in: 'login',
+    log_in: 'token',
     sign_up: 'signup',
     categories: 'categories',
 }

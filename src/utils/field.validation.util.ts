@@ -24,6 +24,7 @@ export const validateConfirmPassword = (password: string, confirmPassword: strin
     return password === confirmPassword;
 }
 
-export const capitalizeFirstLetter = (string: string): string => {
+export const capitalizeFirstLetter = (string: string | undefined): string => {
+    if (!string) return "";
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
