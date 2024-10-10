@@ -10,3 +10,7 @@ html {
 .scale-on-hover:hover {
     transform: scale(1.1) !important;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
