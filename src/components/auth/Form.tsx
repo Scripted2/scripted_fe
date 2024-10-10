@@ -3,7 +3,7 @@ import {FiUser} from "react-icons/fi";
 import {MdEmail, MdLock} from "react-icons/md";
 import {Link} from "react-router-dom";
 import {IAuthForm} from "../../interfaces/auth.interface.ts";
-import {fieldStyles, leftElementStyles} from "../../styles/components/form.ts";
+import {fieldInputStyles, leftElementStyles} from "../../styles/components/form.ts";
 import {useState} from "react";
 
 const AuthForm = ({
@@ -14,6 +14,7 @@ const AuthForm = ({
                       buttonAction,
                       onInputChange,
                       formData,
+                      errors,
                   }: IAuthForm) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -40,7 +41,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"first_name"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.first_name ? "2px solid red" : ""
+                            }}
                             type="text"
                             placeholder="First Name"
                             onChange={onInputChange}
@@ -56,7 +60,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"last_name"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.last_name ? "2px solid red" : ""
+                            }}
                             type="text"
                             placeholder="Last Name"
                             onChange={onInputChange}
@@ -72,7 +79,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"username"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.username ? "2px solid red" : ""
+                            }}
                             type="text"
                             placeholder="Username"
                             onChange={onInputChange}
@@ -88,7 +98,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"email"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.email ? "2px solid red" : ""
+                            }}
                             type="email"
                             placeholder="Email"
                             onChange={onInputChange}
@@ -104,7 +117,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"password"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.password ? "2px solid red" : ""
+                            }}
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
                             onChange={onInputChange}
@@ -120,7 +136,10 @@ const AuthForm = ({
                         />
                         <Input
                             name={"confirm_password"}
-                            sx={fieldStyles}
+                            sx={{
+                                ...fieldInputStyles,
+                                border: errors?.confirm_password ? "2px solid red" : ""
+                            }}
                             type={showPassword ? "text" : "password"}
                             placeholder="Confirm Password"
                             onChange={onInputChange}

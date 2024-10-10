@@ -10,6 +10,15 @@ export interface ISignUp {
     favorite_categories_ids?: number[];
 }
 
+interface IFormErrors {
+    first_name: boolean;
+    last_name: boolean;
+    username: boolean;
+    email: boolean;
+    password: boolean;
+    confirm_password: boolean;
+}
+
 export interface IAuthForm {
     buttonText: string;
     bottomText?: string;
@@ -18,12 +27,14 @@ export interface IAuthForm {
     buttonAction?: () => void;
     onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     formData: ISignUp;
+    errors?: IFormErrors;
 }
 
 export interface ISignUpFirstStep {
     goToNextStep: () => void;
     onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     formData: ISignUp;
+    errors: IFormErrors;
 }
 
 export interface ISignUpSecondStep {

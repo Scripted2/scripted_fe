@@ -5,6 +5,7 @@ const SignUpFirstStep = ({
                              goToNextStep,
                              onInputChange,
                              formData,
+                             errors
                          }: ISignUpFirstStep) => {
     return (
         <>
@@ -16,6 +17,7 @@ const SignUpFirstStep = ({
                 buttonAction={goToNextStep}
                 onInputChange={onInputChange}
                 formData={formData}
+                errors={errors}
             />
         </>
     );

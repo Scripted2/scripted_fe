@@ -1,7 +1,6 @@
-export const fieldStyles = {
+export const fieldInputStyles = {
     backgroundColor: "#474B52",
     borderRadius: "40.38px",
-    border: "none",
     height: "58px",
     color: "#FFFFFF",
     textAlign: "center",
